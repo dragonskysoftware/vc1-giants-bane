@@ -15,6 +15,7 @@
 #include "../texture/ImageTexture.h"
 #include "../texture/TextTexture.h"
 #include "../texture/EnumTextureType.h"
+#include "../util/constants.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
@@ -47,6 +48,9 @@ class Component {
 		int getHeight() const; //returns the height of the Component
 
 		//setter methods
+
+		void setX(int newX); //sets the X-coordinate of the Component
+		void setY(int newY); //sets the Y-coordinate of the Component
 
 		//sets the texture image
 		bool setTextureImage(std::string imagePath);

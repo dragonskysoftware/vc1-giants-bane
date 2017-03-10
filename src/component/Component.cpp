@@ -132,6 +132,20 @@ int Component::getHeight() const {
 
 //setter methods
 
+//setX method - sets the X-coordinate of the Component
+void Component::setX(int newX) {
+	if(newX >= 0 && newX < SCREEN_WIDTH) { //if the x-coordinate is valid
+		this->xPos = newX; //then assign the new X position of the Component
+	}
+}
+
+//setY method - sets the Y-coordinate of the Component
+void Component::setY(int newY) {
+	if(newY >= 0 && newY < SCREEN_HEIGHT) { //if the y-coordinate is valid
+		this->yPos = newY; //then assign the new Y position of the Component
+	}
+}
+
 //setTextureImage method - sets the texture image of the encapsulated ImageTexture object, that is, if it's an ImageTexture
 bool Component::setTextureImage(std::string imagePath) {
 	return this->texture->loadFromFile(imagePath, this->renderer); //load the texture image from a file
