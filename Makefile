@@ -20,9 +20,10 @@ debug: CPPFLAGS += -g
 MAIN=$(shell ls src/*.cpp)
 TEX=$(shell ls src/texture/*.cpp)
 COMP=$(shell ls src/component/*.cpp)
+UTIL=$(shell ls src/util/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)

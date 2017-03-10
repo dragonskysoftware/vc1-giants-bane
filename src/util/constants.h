@@ -11,16 +11,16 @@
 #define CONST_H_INC
 
 //screen size constants
-#define SCREEN_WIDTH 640 //the width of the screen
-#define SCREEN_HEIGHT 480 //the height of the screen
+extern const int SCREEN_WIDTH; //the width of the screen
+extern const int SCREEN_HEIGHT; //the height of the screen
 
 //the header text for the game window
-#define WIN_HEADER "Validian Chronicles I: Giant's Bane"
+extern const char* WIN_HEADER;
 
 //the version string for the game
-#define VERSION "0.1.0 alpha"
+extern const char* VERSION;
 
 //the temporary message displayed during development
-#define DEV_MSG "Giant's Bane is currently in development."
+extern const char* DEV_MSG;
 
 #endif
