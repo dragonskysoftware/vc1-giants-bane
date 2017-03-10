@@ -145,8 +145,8 @@ bool Component::setTextureText(std::string newText, SDL_Color textColor, TTF_Fon
 //other method
 
 //render method - renders the Component
-void Component::render() const {
-	this->texture->render(this->xPos, this->yPos, this->renderer); //render the texture
+void Component::render(SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip) const {
+	this->texture->render(this->xPos, this->yPos, this->renderer, clip, angle, center, flip); //render the texture
 }
 
 //end of implementation

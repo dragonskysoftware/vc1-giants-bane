@@ -55,7 +55,9 @@ class Component {
 		bool setTextureText(std::string newText, SDL_Color textColor, TTF_Font* textFont);
 
 		//other methods
-		void render() const; //renders the Component
+
+		//renders the Component
+		void render(SDL_Rect* clip = nullptr, double angle = 0.0, SDL_Point* center = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 
 		//PV intersects method - returns whether or not the Component intersects another Component
 		virtual bool intersects(const Component& other) const = 0;
