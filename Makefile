@@ -21,9 +21,11 @@ MAIN=$(shell ls src/*.cpp)
 TEX=$(shell ls src/texture/*.cpp)
 COMP=$(shell ls src/component/*.cpp)
 UTIL=$(shell ls src/util/*.cpp)
+EXCE=$(shell ls src/except/*.cpp)
+DICE=$(shell ls src/dice/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)
