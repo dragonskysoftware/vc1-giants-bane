@@ -73,8 +73,8 @@ bool ImageTexture::loadFromFile(std::string filePath, SDL_Renderer* renderer) {
 	if(loadedSurface == nullptr) { //if the image was loaded improperly
 		std::cerr << "Unable to load image " << filePath << ". Error: " << IMG_GetError() << std::endl; //error message
 	} else {
-		//color key the surface
-		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xff, 0xff, 0xff));
+		//color key the surface to cyan
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0x00, 0xff, 0xff));
 		//get the texture from the surface
 		finalTexture = SDL_CreateTextureFromSurface(renderer, loadedSurface); //render the texture
 		//verify the texture
