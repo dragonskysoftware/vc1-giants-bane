@@ -2,7 +2,7 @@
  * D4.h
  * Declares a class that represents a 4-sided die
  * Created by Andrew Davis
- * Created on 3/11/417
+ * Created on 3/11/2017
  * Open source (GPL license)
  */
 

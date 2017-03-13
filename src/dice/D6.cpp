@@ -2,7 +2,7 @@
  * D6.cpp
  * Implements a class that represents a 6-sided die
  * Created by Andrew Davis
- * Created on 3/11/617
+ * Created on 3/11/2017
  * Open source (GPL license)
  */
 

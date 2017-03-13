@@ -2,7 +2,7 @@
  * D8.cpp
  * Implements a class that represents a 8-sided die
  * Created by Andrew Davis
- * Created on 3/11/817
+ * Created on 3/11/2017
  * Open source (GPL license)
  */
 

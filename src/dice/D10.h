@@ -2,7 +2,7 @@
  * D10.h
  * Declares a class that represents a 10-sided die
  * Created by Andrew Davis
- * Created on 3/11/1017
+ * Created on 3/11/2017
  * Open source (GPL license)
  */
 

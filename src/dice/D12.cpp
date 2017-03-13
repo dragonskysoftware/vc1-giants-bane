@@ -2,7 +2,7 @@
  * D12.cpp
  * Implements a class that represents a 12-sided die
  * Created by Andrew Davis
- * Created on 3/11/1217
+ * Created on 3/11/2017
  * Open source (GPL license)
  */
 
