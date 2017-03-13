@@ -7,8 +7,8 @@
  */
 
 //disallow reinclusion
-#ifndef INVAL_ST_EXCE
-#define INVAL_ST_EXCE
+#ifndef INVAL_DICT_EXCE
+#define INVAL_DICT_EXCE
 
 //includes
 #include <exception>
