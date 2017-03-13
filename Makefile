@@ -24,9 +24,11 @@ UTIL=$(shell ls src/util/*.cpp)
 EXCE=$(shell ls src/except/*.cpp)
 DICE=$(shell ls src/dice/*.cpp)
 DATA=$(shell ls src/data/*.cpp)
+EVNT=$(shell ls src/event/*.cpp)
+CORE=$(shell ls src/core/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)
