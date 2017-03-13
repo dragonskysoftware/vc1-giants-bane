@@ -22,4 +22,13 @@ const char* VERSION = "0.1.0 alpha";
 //the temporary message displayed during development
 const char* DEV_MSG = "Giant's Bane is currently in development.";
 
+//operation state constants
+const int STARTING = 2; //the game is starting up
+const int RUNNING = 1; //the game is running
+const int SHUTDOWN = 0; //the game is shutting down
+const int STOPPED = -1; //the game is stopped
+
+//database key constants
+const char* OP_KEY = "Operation"; //the database key for the operation state
+
 //end of definitions
