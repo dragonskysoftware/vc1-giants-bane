@@ -25,4 +25,10 @@ inline bool fileExistsAtPath(std::string path) {
 	return fileExistsAtPath(path.c_str()); //call the other fileExistsAtPath function
 }
 
+//isNaN function - returns whether a character is not a number
+inline bool isNaN(char test) {
+	bool inv = (test >= '0' && test <= '9'); //get whether or not the character is a number
+	return !inv; //and return the inverse of that calculation
+}
+
 #endif
