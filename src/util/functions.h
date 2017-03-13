@@ -31,4 +31,20 @@ inline bool isNaN(char test) {
 	return !inv; //and return the inverse of that calculation
 }
 
+//validateSideCount function - returns whether a number is a valid number of sides on a die
+inline bool validateSideCount(int sides) {
+	if(sides == 100) { //if there are 100 sides (percentile die)
+		return true; //then return true (valid side count)
+	}
+	if(sides == 20) { //if there are 20 sides
+		return true; //then return true (valid side count)
+	}
+	if((sides >= 4 && sides <= 12) && (sides % 2 == 0)) { //if the sides are either 4, 6, 8, 10, or 12
+		return true; //then return true (valid side count)
+	}
+	return false; //invalid sides
+}
+
+
+
 #endif
