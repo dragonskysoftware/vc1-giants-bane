@@ -31,4 +31,15 @@ const int STOPPED = -1; //the game is stopped
 //database key constants
 const char* OP_KEY = "Operation"; //the database key for the operation state
 
+//ability score constants
+const int SCORE_MIN = 0; //the minimum possible ability score
+const int SCORE_MAX = 30; //the maximum possible ability score
+const char* N_STR = "Strength"; //the name of the strength stat
+const char* N_DEX = "Dexterity"; //the name of the dexterity stat
+const char* N_CON = "Constitution"; //the name of the constitution stat
+const char* N_TGT = "Thought"; //the name of the thought stat
+const char* N_SOC = "Social"; //the name of the social stat
+const char* N_ARC = "Arcana"; //the name of the arcana stat
+
+
 //end of definitions

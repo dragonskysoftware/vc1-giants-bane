@@ -32,4 +32,14 @@ extern const int STOPPED; //game is off
 //database key constants
 extern const char* OP_KEY; //the key for the operation state DB entry
 
+//ability score constants
+extern const int SCORE_MIN; //the minimum possible ability score
+extern const int SCORE_MAX; //the maximum possible ability score
+extern const char* N_STR; //the name of the strength stat
+extern const char* N_DEX; //the name of the dexterity stat
+extern const char* N_CON; //the name of the constitution stat
+extern const char* N_TGT; //the name of the thought stat
+extern const char* N_SOC; //the name of the social stat
+extern const char* N_ARC; //the name of the arcana stat
+
 #endif
