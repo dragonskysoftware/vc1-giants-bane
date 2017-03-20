@@ -27,9 +27,11 @@ DATA=$(shell ls src/data/*.cpp)
 EVNT=$(shell ls src/event/*.cpp)
 CORE=$(shell ls src/core/*.cpp)
 STAT=$(shell ls src/stat/*.cpp)
+EVMAIN=$(shell ls src/evscript/*.cpp)
+EVTYPE=$(shell ls src/evscript/types/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT) $(EVMAIN) $(EVTYPE)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)
