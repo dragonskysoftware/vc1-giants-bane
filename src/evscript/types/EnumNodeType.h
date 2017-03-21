@@ -24,6 +24,8 @@ enum class EnumNodeType {
 	GAME, //game call
 	FUNC, //built-in function call
 	CALL, //user-defined function call
+	CONST, //constant value
+	ARRAY, //array value
 };
 
 #endif
