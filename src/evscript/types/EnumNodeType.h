@@ -22,6 +22,7 @@ enum class EnumNodeType {
 	EQU, //assignment
 	SYMS, //symbol list
 	GAME, //game call
+	FUNC, //built-in function call
 	CALL, //user-defined function call
 };
 
