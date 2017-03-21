@@ -13,6 +13,7 @@
 //enum definition
 enum class EnumNodeType {
 	MATH, //math operators
+	LOGIC, //logical operators
 	COMP, //comparison operator
 	NEG, //negation operator
 	EXP, //expression
