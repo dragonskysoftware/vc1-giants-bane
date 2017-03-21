@@ -13,6 +13,8 @@
 //enum definition
 enum class EnumFunc {
 	SQRT, //square root
+	SQU, //square
+	CUBE, //cube
 	EXP, //exponentiate
 	LOG, //logarithm
 };
