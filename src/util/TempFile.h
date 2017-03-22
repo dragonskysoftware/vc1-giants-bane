@@ -1,0 +1,57 @@
+/*
+ * TempFile.h
+ * Declares a class that represents a temporary file
+ * Created by Andrew Davis
+ * Created on 3/22/2017
+ * Open source (GPL license)
+ */
+
+//disallow reinclusion
+#ifndef TEMP_FILE_H
+#define TEMP_FILE_H
+
+//includes
+#include <cstdio>
+#include <fstream>
+#include <iostream>
+#include <string>
+
+//class declaration
+class TempFile final {
+	//public fields and methods
+	public:
+		//constructor
+		TempFile();
+
+		//destructor
+		~TempFile();
+
+		//copy constructor
+		TempFile(const TempFile& tf);
+
+		//move constructor
+		TempFile(TempFile&& tf);
+
+		//assignment operator
+		TempFile& operator=(const TempFile& src);
+
+		//move operator
+		TempFile& operator=(TempFile&& src);
+
+		//friendly insertion and extraction operators
+		friend std::ostream& operator<<(std::ostream& os, const TempFile& tf); //insertion operator
+		friend std::istream& operator>>(std::istream& is, TempFile& tf); //extraction operator
+
+		//getter method
+		const std::string& getFileName() const; //returns the filename of the TempFile
+
+	//private fields and methods
+	private:
+		//private method
+		void free(); //deallocates and closes down an instance of a TempFile
+
+		//field
+		std::string fileName; //the name of the file
+};
+
+#endif
