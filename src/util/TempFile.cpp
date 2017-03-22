@@ -14,6 +14,8 @@ TempFile::TempFile()
 	: fileName() //init the field to empty
 {
 	this->fileName = std::tmpnam(nullptr); //get a unique filename
+	std::ofstream creator(this->fileName.c_str()); //create the file
+	creator.close(); //finish the file creation
 }
 
 //destructor
@@ -73,7 +75,9 @@ const std::string& TempFile::getFileName() const {
 
 //free method - deallocates and cleans up the object
 void TempFile::free() {
-	remove(this->fileName.c_str()); //delete the temporary file
+	if(fileExistsAtPath(this->fileName)) { //if the temp file exists
+		remove(this->fileName.c_str()); //delete the temporary file
+	}
 }
 
 //end of implementation

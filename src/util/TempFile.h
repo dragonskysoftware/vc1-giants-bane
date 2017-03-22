@@ -15,6 +15,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "functions.h"
 
 //class declaration
 class TempFile final {
