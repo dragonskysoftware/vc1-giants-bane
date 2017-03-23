@@ -10,47 +10,42 @@
 #include "SymbolRef.h"
 
 //constructor
-SymbolRef::SymbolRef(const Symbol* newSym)
-	: ASTNode(EnumNodeType::REF, nullptr, nullptr), sym(nullptr) //call superclass constructor and zero the symbol pointer
+SymbolRef::SymbolRef(Symbol* newSym)
+	: ASTNode(EnumNodeType::REF, nullptr, nullptr), sym(newSym) //call superclass constructor and init the symbol pointer
 {
-	if(newSym == nullptr) { //if the supplied symbol is null
-		throw InvalidStateException("Symbol pointer is null in SymbolRef constructor"); //then throw an exception
-	}
-	this->sym = new Symbol(*newSym); //init the symbol pointer
+	//no code needed
 }
 
 //destructor
 SymbolRef::~SymbolRef() {
-	this->free(); //deallocate the symbol pointer
+	//no code needed
 }
 
 //copy constructor
 SymbolRef::SymbolRef(const SymbolRef& sr)
-	: ASTNode(sr), sym(nullptr) //call superclass copy constructor and zero the symbol pointer
+	: ASTNode(sr), sym(sr.sym) //call superclass copy constructor and copy the symbol pointer
 {
-	this->sym = new Symbol(*sr.sym); //copy the symbol pointer
+	//no code needed
 }
 
 //move constructor
 SymbolRef::SymbolRef(SymbolRef&& sr)
-	: ASTNode(sr), sym(nullptr) //call superclass move constructor and zero the symbol pointer
+	: ASTNode(sr), sym(sr.sym) //call superclass move constructor and move the symbol pointer
 {
-	this->sym = new Symbol(*sr.sym); //move the symbol pointer
-	sr.free(); //deallocate the temporary object
+	//no code needed
 }
 
 //assignment operator
 SymbolRef& SymbolRef::operator=(const SymbolRef& src) {
 	ASTNode::operator=(src); //call superclass assignment operator
-	*this->sym = *src.sym; //assign the symbol pointer
+	this->sym = src.sym; //assign the symbol pointer
 	return *this; //return the object
 }
 
 //move operator
 SymbolRef& SymbolRef::operator=(SymbolRef&& src) {
 	ASTNode::operator=(src); //call superclass move operator
-	*this->sym = *src.sym; //move the symbol pointer
-	src.free(); //deallocate the temporary object
+	this->sym = src.sym; //move the symbol pointer
 	return *this; //return the object
 }
 
@@ -59,14 +54,6 @@ SymbolRef& SymbolRef::operator=(SymbolRef&& src) {
 //getSymbol method - returns the symbol pointer of the SymbolRef
 const Symbol* SymbolRef::getSymbol() const {
 	return this->sym; //return the symbol pointer
-}
-
-//private method
-
-//free method - deallocates the SymbolRef
-void SymbolRef::free() {
-	delete this->sym; //deallocate the symbol pointer
-	this->sym = nullptr; //and zero it out
 }
 
 //end of implementation

@@ -22,7 +22,7 @@ class SymbolRef final : public ASTNode
 	//public fields and methods
 	public:
 		//constructor
-		SymbolRef(const Symbol* newSym); 
+		explicit SymbolRef(Symbol* newSym); 
 
 		//destructor
 		~SymbolRef();
@@ -44,9 +44,6 @@ class SymbolRef final : public ASTNode
 
 	//private fields and methods
 	private:
-		//private method
-		void free(); //deallocates the SymbolRef
-
 		//field
 		Symbol* sym; //the internal symbol pointer
 };

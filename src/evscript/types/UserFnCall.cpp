@@ -10,51 +10,42 @@
 #include "UserFnCall.h"
 
 //constructor
-UserFnCall::UserFnCall(const Symbol* newSym, const ASTNode* newLeft)
-	: ASTNode(EnumNodeType::CALL, newLeft, nullptr), sym(nullptr) //call superconstructor and null the symbol field
+UserFnCall::UserFnCall(Symbol* newSym, const ASTNode* newLeft)
+	: ASTNode(EnumNodeType::CALL, newLeft, nullptr), sym(newSym) //call superconstructor and init the symbol field
 {
-	if(newSym == nullptr) { //if the symbol supplied in the constructor is invalid
-		throw InvalidStateException("Symbol pointer is null in UserFnCall constructor"); //then throw an exception
-	} else { //if it's not
-		this->sym = new Symbol(*newSym); //then construct this symbol field
-	}
+	//no code needed
 }
 
 //destructor
 UserFnCall::~UserFnCall() {
-	delete this->sym; //deallocate the symbol field
-	this->sym = nullptr; //and zero it out
+	//no code needed
 }
 
 //copy constructor
 UserFnCall::UserFnCall(const UserFnCall& ufc)
-	: ASTNode(ufc), sym(nullptr) //call superclass copy constructor and null the symbol field
+	: ASTNode(ufc), sym(ufc.sym) //call superclass copy constructor and copy the symbol field
 {
-	this->sym = new Symbol(*ufc.sym); //copy the symbol field
+	//no code needed
 }
 
 //move constructor
 UserFnCall::UserFnCall(UserFnCall&& ufc)
-	: ASTNode(ufc), sym(nullptr) //call superclass move constructor and null the symbol field
+	: ASTNode(ufc), sym(ufc.sym) //call superclass move constructor and move the symbol field
 {
-	this->sym = new Symbol(*ufc.sym); //move the symbol field
-	delete ufc.sym; //deallocate the temporary's symbol field
-	ufc.sym = nullptr; //and zero it out
+	//no code needed
 }
 
 //assignment operator
 UserFnCall& UserFnCall::operator=(const UserFnCall& src) {
 	ASTNode::operator=(src); //call superclass assignment operator
-	*this->sym = *src.sym; //assign the symbol field
+	this->sym = src.sym; //assign the symbol field
 	return *this; //return the object
 }
 
 //move operator
 UserFnCall& UserFnCall::operator=(UserFnCall&& src) {
 	ASTNode::operator=(src); //call superclass move operator
-	*this->sym = *src.sym; //move the symbol field
-	delete src.sym; //deallocate the temporary's symbol field
-	src.sym = nullptr; //and zero it out
+	this->sym = src.sym; //move the symbol field
 	return *this; //return the object
 }
 

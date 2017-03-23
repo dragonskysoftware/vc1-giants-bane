@@ -22,7 +22,7 @@ class UserFnCall final : public ASTNode
 	//public fields and methods
 	public:
 		//constructor
-		UserFnCall(const Symbol* newSym, const ASTNode* newLeft);
+		UserFnCall(Symbol* newSym, const ASTNode* newLeft);
 
 		//destructor
 		~UserFnCall();
