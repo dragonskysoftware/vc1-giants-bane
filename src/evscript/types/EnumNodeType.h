@@ -25,6 +25,7 @@ enum class EnumNodeType {
 	FUNC, //built-in function call
 	CALL, //user-defined function call
 	CONST, //constant value
+	ARRAY, //array reference
 };
 
 #endif
