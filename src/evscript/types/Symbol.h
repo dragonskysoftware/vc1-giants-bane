@@ -28,7 +28,7 @@ class Symbol final {
 		Symbol(const char* newName, const Array& newArray);
 
 		//constructor 3 - constructs from a name and a function dataset
-		Symbol(const char* newName, const ASTNode* newFunction, const SymbolList& newArgs);
+		Symbol(const char* newName, const ASTNode* newFunction, const SymbolList* newArgs);
 
 		//destructor
 		~Symbol();
@@ -50,7 +50,7 @@ class Symbol final {
 		Variant& value(); //returns a reference to the value of the Symbol
 		Array& array(); //returns a reference to the array for the Symbol
 		ASTNode* function(); //returns a pointer to the function AST for the Symbol
-		SymbolList& functionArgs(); //returns a reference to the Symbol's function arguments
+		SymbolList* functionArgs(); //returns a pointer to the Symbol's function arguments
 
 	//private fields and methods
 	private:
@@ -59,7 +59,7 @@ class Symbol final {
 		Variant value_; //the value of the Symbol
 		Array array_; //the array for the Symbol
 		ASTNode* function_; //the function code embedded in the Symbol
-		SymbolList args_; //the arguments to the Symbol's function
+		SymbolList* args_; //the arguments to the Symbol's function
 		
 };
 

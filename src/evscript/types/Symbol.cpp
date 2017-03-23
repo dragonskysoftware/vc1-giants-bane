@@ -11,24 +11,27 @@
 
 //constructor 1 - constructs from a name and a value
 Symbol::Symbol(const char* newName, const Variant& newValue)
-	: name_(newName), value_(newValue), array_(), function_(nullptr), args_() //init the fields
+	: name_(newName), value_(newValue), array_(), function_(nullptr), args_(nullptr) //init the fields
 {
 	//no code needed
 }
 
 //constructor 2 - constructs from a name and an array
 Symbol::Symbol(const char* newName, const Array& newArray)
-	: name_(newName), value_(), array_(newArray), function_(nullptr), args_() //init the fields
+	: name_(newName), value_(), array_(newArray), function_(nullptr), args_(nullptr) //init the fields
 {
 	//no code needed
 }
 
 //constructor 3 - constructs from a name and a function dataset
-Symbol::Symbol(const char* newName, const ASTNode* newFunction, const SymbolList& newArgs)
-	: name_(newName), value_(), array_(), function_(nullptr), args_(newArgs) //init the fields
+Symbol::Symbol(const char* newName, const ASTNode* newFunction, const SymbolList* newArgs)
+	: name_(newName), value_(), array_(), function_(nullptr), args_(nullptr) //init the fields
 {
 	if(newFunction != nullptr) { //if the new function is valid
 		this->function_ = new ASTNode(*newFunction); //then init this function field
+	}
+	if(newArgs != nullptr) { //if the arguments are valid
+		this->args_ = new SymbolList(*newArgs); //then init this args field
 	}
 }
 
@@ -37,15 +40,21 @@ Symbol::~Symbol() {
 	//clean up the object
 	delete this->function_; //deallocate the function
 	this->function_ = nullptr; //and zero it out
+	delete this->args_; //deallocate the arguments
+	this->args_ = nullptr; //and zero them out
 }
 
 //copy constructor
 Symbol::Symbol(const Symbol& s)
-	: name_(s.name_), value_(s.value_), array_(s.array_), function_(nullptr), args_(s.args_) //copy the fields
+	: name_(s.name_), value_(s.value_), array_(s.array_), function_(nullptr), args_(nullptr) //copy the fields
 {
 	if(s.function_ != nullptr) { //if the other function is valid
 		this->function_ = new ASTNode(*s.function_); //then copy it into this function
 	}
+	if(s.args_ != nullptr) { //if the other args are valid
+		this->args_ = new SymbolList(*s.args_); //then copy them into this args
+	}
+
 }
 
 //move constructor
@@ -55,8 +64,14 @@ Symbol::Symbol(Symbol&& s)
 	if(s.function_ != nullptr) { //if the other function is valid
 		this->function_ = new ASTNode(*s.function_); //then copy it into this function
 	}
+	if(s.args_ != nullptr) { //if the other args are valid
+		this->args_ = new SymbolList(*s.args_); //then move them into this args
+	}
+
 	delete s.function_; //deallocate the temporary's function
 	s.function_ = nullptr; //and zero it out
+	delete s.args_; //deallocate the temporary's args
+	s.args_ = nullptr; //and zero them out
 }
 
 //assignment operator
@@ -64,12 +79,17 @@ Symbol& Symbol::operator=(const Symbol& src) {
 	this->name_ = src.name_; //assign the name
 	this->value_ = src.value_; //assign the value
 	this->array_ = src.array_; //assign the array
-	this->args_ = src.args_; //assign the function args
 	if(src.function_ != nullptr) { //if the other function isn't null
 		*this->function_ = *src.function_; //then assign the function
 	} else { //if it is null
 		delete this->function_; //deallocate this function
 		this->function_ = nullptr; //and zero it out
+	}
+	if(src.args_ != nullptr) { //if the other args aren't null
+		*this->args_ = *src.args_; //then assign the args
+	} else { //if it is null
+		delete this->args_; //deallocate this args
+		this->args_ = nullptr; //and zero them out
 	}
 	return *this; //return the object
 }
@@ -86,8 +106,16 @@ Symbol& Symbol::operator=(Symbol&& src) {
 		delete this->function_; //deallocate this function
 		this->function_ = nullptr; //and zero it out
 	}
+	if(src.args_ != nullptr) { //if the other args aren't null
+		*this->args_ = *src.args_; //then move the args
+	} else { //if it is null
+		delete this->args_; //deallocate this args
+		this->args_ = nullptr; //and zero them out
+	}
 	delete src.function_; //deallocate the temporary's function
 	src.function_ = nullptr; //and zero it out
+	delete src.args_; //deallocate the temporary's args
+	src.args_ = nullptr; //and zero them out
 	return *this; //return the object
 }
 
@@ -113,8 +141,8 @@ ASTNode* Symbol::function() {
 	return this->function_; //return the function_ field
 }
 
-//functionArgs method - returns a reference to the args_ field
-SymbolList& Symbol::functionArgs() {
+//functionArgs method - returns a pointer to the args_ field
+SymbolList* Symbol::functionArgs() {
 	return this->args_; //return the args_ field
 }
 
