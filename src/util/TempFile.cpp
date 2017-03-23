@@ -9,11 +9,18 @@
 //include header
 #include "TempFile.h"
 
+//init the static fileID member
+unsigned long long TempFile::fileID = 0; //used to created unique file names
+
 //constructor
 TempFile::TempFile()
-	: fileName() //init the field to empty
+	: fileName("EvScriptFile") //init the field to the first part of the filename
 {
-	this->fileName = std::tmpnam(nullptr); //get a unique filename
+	if(fileID == ULLONG_MAX) { //if the file ID counter has reached its max
+		fileID = 0; //then reset it to 0
+	}
+	this->fileName += std::to_string(fileID++); //append the file ID to the file name
+	this->fileName += ".evsc"; //append the file extension
 	std::ofstream creator(this->fileName.c_str()); //create the file
 	creator.close(); //finish the file creation
 }

@@ -11,9 +11,9 @@
 #define TEMP_FILE_H
 
 //includes
-#include <cstdio>
 #include <fstream>
 #include <iostream>
+#include <climits>
 #include <string>
 #include "functions.h"
 
@@ -51,7 +51,8 @@ class TempFile final {
 		//private method
 		void free(); //deallocates and closes down an instance of a TempFile
 
-		//field
+		//fields
+		static unsigned long long fileID; //the ID of the temporary file (starts at 0 and increments for each file)
 		std::string fileName; //the name of the file
 };
 
