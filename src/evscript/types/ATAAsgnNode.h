@@ -7,8 +7,8 @@
  */
 
 //disallow reinclusion
-#ifndef VTV_ASGN_H
-#define VTV_ASGN_H
+#ifndef ATA_ASGN_H
+#define ATA_ASGN_H
 
 //includes
 #include "ArrayRef.h"
