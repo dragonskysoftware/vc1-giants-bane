@@ -12,7 +12,7 @@
 
 //enum definition
 enum class EnumAsgnType {
-	VAL, //value assigned to a value
+	VTV, //value assigned to a value
 	VTIA, //array dereference assigned to a value
 	ATA, //array assigned to another array
 	AITA, //array dereference assigned to an array
