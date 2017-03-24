@@ -15,7 +15,6 @@ enum class EnumAsgnType {
 	VTV, //value assigned to a value
 	VTIA, //array dereference assigned to a value
 	ATA, //array assigned to another array
-	AITA, //array dereference assigned to an array
 	AITIA //array dereference assigned to another array dereference
 };
 
