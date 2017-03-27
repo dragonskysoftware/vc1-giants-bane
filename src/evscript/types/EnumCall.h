@@ -13,6 +13,8 @@
 //enum definition
 enum class EnumCall {
 	SHUTDOWN, //shut down game
+	SLEEP, //sleep x seconds
+	USLEEP, //sleep x milliseconds
 };
 
 #endif
