@@ -21,6 +21,9 @@
 class Symbol final {
 	//public fields and methods
 	public:
+		//default constructor - initializes every field to empty
+		Symbol();
+
 		//constructor 1 - constructs from a name and a value
 		Symbol(const char* newName, const Variant& newValue);
 
@@ -49,8 +52,8 @@ class Symbol final {
 		std::string& name(); //returns a reference to the name of the Symbol
 		Variant& value(); //returns a reference to the value of the Symbol
 		Array& array(); //returns a reference to the array for the Symbol
-		ASTNode* function(); //returns a pointer to the function AST for the Symbol
-		SymbolList* functionArgs(); //returns a pointer to the Symbol's function arguments
+		ASTNode*& function(); //returns a pointer to the function AST for the Symbol
+		SymbolList*& functionArgs(); //returns a pointer to the Symbol's function arguments
 
 	//private fields and methods
 	private:

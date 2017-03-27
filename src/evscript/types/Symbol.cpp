@@ -9,6 +9,13 @@
 //include header
 #include "Symbol.h"
 
+//default constructor - initializes every field to empty
+Symbol::Symbol()
+	: name_(), value_(), array_(), function_(nullptr), args_(nullptr) //empty the fields
+{
+	//no code needed
+}
+
 //constructor 1 - constructs from a name and a value
 Symbol::Symbol(const char* newName, const Variant& newValue)
 	: name_(newName), value_(newValue), array_(), function_(nullptr), args_(nullptr) //init the fields
@@ -137,12 +144,12 @@ Array& Symbol::array() {
 }
 
 //function method - returns a pointer to the function_ field
-ASTNode* Symbol::function() {
+ASTNode*& Symbol::function() {
 	return this->function_; //return the function_ field
 }
 
 //functionArgs method - returns a pointer to the args_ field
-SymbolList* Symbol::functionArgs() {
+SymbolList*& Symbol::functionArgs() {
 	return this->args_; //return the args_ field
 }
 
