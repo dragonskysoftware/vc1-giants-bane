@@ -16,6 +16,14 @@ void call_shutdownGame() {
 	GameDB::getInstance().setInt(OP_KEY, SHUTDOWN); //write a shutdown value to the operation state entry in the database
 }
 
-//TODO: Add more calls
+//sleep call - delays the game for a set number of seconds
+void call_sleep(int seconds) {
+	call_usleep(seconds * 1000); //call the other sleep function
+}
+
+//usleep call - delays the game for a set number of milliseconds
+void call_usleep(int mseconds) {
+	SDL_Delay(mseconds); //delay the given time
+}
 
 //end of implementation

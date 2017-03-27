@@ -11,12 +11,13 @@
 #define CALLS_H_INC
 
 //includes
+#include <SDL2/SDL.h>
 #include "../util/constants.h"
 #include "../data/GameDB.h"
 
 //function prototypes
 void call_shutdownGame(); //shuts down the game when called
-
-//TODO: Add more calls
+void call_sleep(int seconds); //delays the game for a set number of seconds
+void call_usleep(int mseconds); //delays the game for a set number of milliseconds
 
 #endif
