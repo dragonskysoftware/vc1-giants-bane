@@ -15,7 +15,7 @@ enum class EnumNodeType {
 	MATH, //math operators
 	LOGIC, //logical operators
 	COMP, //comparison operator
-	EXP, //expression
+	LIST, //expression list
 	IF, //if statement
 	WHL, //while statement
 	REF, //symbol reference
