@@ -14,8 +14,8 @@
 enum class EnumCompType {
 	EQUAL, //==
 	NEQUAL, //!=
-	LTHEN, //<
-	GTHEN, //>
+	LTHAN, //<
+	GTHAN, //>
 	LTOE, //<=
 	GTOE //>=
 };
