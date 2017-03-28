@@ -12,10 +12,10 @@
 
 //enum definition
 enum class EnumLogicOps {
-	AND, //&&
-	OR, //||
-	NOT, //~
-	XOR //^
+	AND, //and logic
+	OR, //inclusive or logic
+	NOT, //not logic (inverter)
+	XOR //exclusive or logic
 };
 
 #endif
