@@ -50,6 +50,8 @@ class EVSContext final {
 		Symbol* lookup(char* symName); //accesses the symbol table and either writes to it or reads from it
 		void eval(); //evaluates the stored AST
 		void defineFunc(Symbol*& name, SymbolList* syms, ASTNode* func); //defines a function
+		void defineArray(Symbol*& name, ASTNode* size); //defines an array
+		void defineArray(Symbol*& name, int size); //also defines an array
 
 	//private fields and methods
 	private:

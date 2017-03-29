@@ -125,6 +125,17 @@ void EVSContext::defineFunc(Symbol*& name, SymbolList* syms, ASTNode* func) {
 	name->function() = new ASTNode(*func); //assign the function AST node
 }
 
+//defineArray method - defines an array in the symbol table
+void EVSContext::defineArray(Symbol*& name, ASTNode* size) {
+	Variant newSize = eval(size); //get the size of the new Array
+	name->array() = Array(newSize.intValue()); //assign the new array
+}
+
+//defineArray method 2 - defines an array in the symbol table
+void EVSContext::defineArray(Symbol*& name, int size) {
+	name->array() = Array(size); //assign the new array
+}
+
 //private method
 
 //free method - deallocates the EVSContext
