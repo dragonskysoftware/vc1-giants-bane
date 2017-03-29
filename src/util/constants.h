@@ -42,7 +42,4 @@ extern const char* N_TGT; //the name of the thought stat
 extern const char* N_SOC; //the name of the social stat
 extern const char* N_ARC; //the name of the arcana stat
 
-//EvScript constants
-extern const int NHASH; //the size of the symbol table
-
 #endif
