@@ -12,6 +12,7 @@
 
 //include directives
 #include "AITIAAsgnNode.h"
+#include "AITVAsgnNode.h"
 #include "Array.h"
 #include "ArrayRef.h"
 #include "ASTNode.h"

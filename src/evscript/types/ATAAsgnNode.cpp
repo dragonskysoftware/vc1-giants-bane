@@ -59,12 +59,12 @@ ATAAsgnNode& ATAAsgnNode::operator=(ATAAsgnNode&& src) {
 //getter methods
 
 //lval method - gets and sets the lval symbol field
-Symbol* ATAAsgnNode::lval() { 
+Symbol*& ATAAsgnNode::lval() { 
 	return this->lvalSym; //return the lval symbol pointer
 }
 
 //getRval method - gets the rval symbol field
-const Symbol* ATAAsgnNode::getRval() const {
+Symbol* ATAAsgnNode::getRval() {
 	return this->rvalSym; //return the rval symbol pointer
 }
 

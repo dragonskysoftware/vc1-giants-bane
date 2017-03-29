@@ -52,7 +52,7 @@ SymbolRef& SymbolRef::operator=(SymbolRef&& src) {
 //getter method
 
 //getSymbol method - returns the symbol pointer of the SymbolRef
-const Symbol* SymbolRef::getSymbol() const {
+Symbol* SymbolRef::getSymbol() {
 	return this->sym; //return the symbol pointer
 }
 

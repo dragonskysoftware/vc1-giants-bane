@@ -65,12 +65,12 @@ AITIAAsgnNode& AITIAAsgnNode::operator=(AITIAAsgnNode&& src) {
 //getter methods
 
 //lval method - gets and sets the lvalRef field
-ArrayRef* AITIAAsgnNode::lval() {
+ArrayRef*& AITIAAsgnNode::lval() {
 	return this->lvalRef; //return the lval pointer
 }
 
 //get method - returns the ArrayRef node used to calculate the value assigned to the lval reference
-const ArrayRef* AITIAAsgnNode::getRval() const {
+ArrayRef* AITIAAsgnNode::getRval() {
 	return this->rvalRef; //return the rval pointer
 }
 

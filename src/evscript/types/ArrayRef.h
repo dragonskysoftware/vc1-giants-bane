@@ -42,7 +42,7 @@ class ArrayRef final : public ASTNode
 
 		//getter methods
 		Array& array(); //returns the stored Symbol's array
-		const ASTNode* getIndexNode() const; //returns the index node for the ArrayRef object
+		ASTNode* getIndexNode(); //returns the index node for the ArrayRef object
 
 	//private fields and methods
 	private:

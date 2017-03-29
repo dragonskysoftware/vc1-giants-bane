@@ -42,8 +42,8 @@ class VTIAAsgnNode final : public GenAsgnNode
 		VTIAAsgnNode& operator=(VTIAAsgnNode&& src);
 
 		//getter methods
-		Symbol* symbol(); //gets or sets the node's symbol
-		const ArrayRef* getArrayRef() const; //returns the array reference for the node
+		Symbol*& symbol(); //gets or sets the node's symbol
+		ArrayRef* getArrayRef(); //returns the array reference for the node
 	
 	//private fields and methods
 	private:

@@ -37,8 +37,8 @@ class ASTNode {
 
 		//getter methods
 		EnumNodeType getNodeType() const; //returns the node type of the ASTNode
-		const ASTNode* getLeftBranch() const; //returns the left branch of the ASTNode
-		const ASTNode* getRightBranch() const; //returns the right branch of the ASTNode
+		ASTNode* getLeftBranch(); //returns the left branch of the ASTNode
+		ASTNode* getRightBranch(); //returns the right branch of the ASTNode
 	
 	//protected fields and methods
 	protected:

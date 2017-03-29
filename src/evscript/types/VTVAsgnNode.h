@@ -42,8 +42,8 @@ class VTVAsgnNode final : public GenAsgnNode
 		VTVAsgnNode& operator=(VTVAsgnNode&& src);
 
 		//getter methods
-		Symbol* symbol(); //gets or sets the node's symbol
-		const ASTNode* getValueNode() const; //returns the node's value
+		Symbol*& symbol(); //gets or sets the node's symbol
+		ASTNode* getValueNode(); //returns the node's value
 	
 	//private fields and methods
 	private:

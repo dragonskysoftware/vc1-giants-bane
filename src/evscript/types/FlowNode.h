@@ -39,9 +39,9 @@ class FlowNode final : public ASTNode
 		FlowNode& operator=(FlowNode&& src);
 
 		//getter methods
-		const ASTNode* getCondition() const; //returns the condition AST node
-		const ASTNode* getThenBranch() const; //returns the "then branch" AST node
-		const ASTNode* getElseBranch() const; //returns the "else branch" AST node
+		ASTNode* getCondition(); //returns the condition AST node
+		ASTNode* getThenBranch(); //returns the "then branch" AST node
+		ASTNode* getElseBranch(); //returns the "else branch" AST node
 
 	//private fields and methods
 	private:

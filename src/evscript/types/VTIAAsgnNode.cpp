@@ -62,12 +62,12 @@ VTIAAsgnNode& VTIAAsgnNode::operator=(VTIAAsgnNode&& src) {
 //getter methods
 
 //symbol method - gets and sets the symbol field
-Symbol* VTIAAsgnNode::symbol() {
+Symbol*& VTIAAsgnNode::symbol() {
 	return this->sym; //return the symbol pointer
 }
 
 //getArrayRef method - returns the ArrayRef node used to calculate the value assigned to the symbol
-const ArrayRef* VTIAAsgnNode::getArrayRef() const {
+ArrayRef* VTIAAsgnNode::getArrayRef() {
 	return this->ref; //return the array reference
 }
 

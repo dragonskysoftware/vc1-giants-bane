@@ -121,12 +121,12 @@ EnumNodeType ASTNode::getNodeType() const {
 }
 
 //getLeftBranch method - returns the left branch of the ASTNode
-const ASTNode* ASTNode::getLeftBranch() const {
+ASTNode* ASTNode::getLeftBranch() {
 	return this->left; //return the left branch pointer
 }
 
 //getRightBranch method - returns the right branch of the ASTNode
-const ASTNode* ASTNode::getRightBranch() const {
+ASTNode* ASTNode::getRightBranch() {
 	return this->right; //return the right branch pointer
 }
 

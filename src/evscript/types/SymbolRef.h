@@ -40,7 +40,7 @@ class SymbolRef final : public ASTNode
 		SymbolRef& operator=(SymbolRef&& src);
 
 		//getter method
-		const Symbol* getSymbol() const; //returns the symbol pointer
+		Symbol* getSymbol(); //returns the symbol pointer
 
 	//private fields and methods
 	private:

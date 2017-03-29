@@ -42,8 +42,8 @@ class ATAAsgnNode final : public GenAsgnNode
 		ATAAsgnNode& operator=(ATAAsgnNode&& src);
 
 		//getter methods
-		Symbol* lval(); //gets or sets the node's lval symbol
-		const Symbol* getRval() const; //gets the node's rval symbol
+		Symbol*& lval(); //gets or sets the node's lval symbol
+		Symbol* getRval(); //gets the node's rval symbol
 	
 	//private fields and methods
 	private:

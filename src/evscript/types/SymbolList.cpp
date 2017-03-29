@@ -64,14 +64,14 @@ SymbolList& SymbolList::operator=(SymbolList&& src) {
 //getter method
 
 //getSymbol method - returns the symbol pointer for the current node
-const Symbol* SymbolList::getSymbol() const {
+Symbol* SymbolList::getSymbol() const {
 	return this->sym; //return the symbol pointer
 }
 
 //list method
 
 //nextNode method - returns the next node in the list
-SymbolList* SymbolList::nextNode() {
+SymbolList*& SymbolList::nextNode() {
 	return this->next; //return the next node pointer
 }
 

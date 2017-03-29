@@ -155,6 +155,407 @@ Variant& Variant::operator=(std::string newString) {
 	return *this; //and return the object
 }
 
+//math operators
+
+//addition operator
+Variant& Variant::operator+=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i += other.intValue(); //add the int value of the other
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d += other.doubleValue(); //add the double value of the other
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f += other.floatValue(); //add the float value of the other
+				break;
+			}
+		case VariantType::STR: //the Variant stores a string
+			{
+				std::string thisStr = this->value.s; //put this string into a std string
+				std::string otherString = other.stringValue(); //get the other Variant as a std string
+				std::string newString = thisStr + otherString; //assemble the new string value for the Variant
+				this->free(); //deallocate this string
+				this->value.s = strdup(newString.c_str()); //and copy in the new string
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//subtraction operator
+Variant& Variant::operator-=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i -= other.intValue(); //subtract the int value of the other
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d -= other.doubleValue(); //subtract the double value of the other
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f -= other.floatValue(); //subtract the float value of the other
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//multiplication operator
+Variant& Variant::operator*=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i *= other.intValue(); //multiply the int value of the other
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d *= other.doubleValue(); //multiply the double value of the other
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f *= other.floatValue(); //multiply the float value of the other
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//division operator
+Variant& Variant::operator/=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i /= other.intValue(); //divide the int value of the other
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d /= other.doubleValue(); //divide the double value of the other
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f /= other.floatValue(); //divide the float value of the other
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//modulus operator
+Variant& Variant::operator%=(const Variant& other) {
+	this->free(); //makes sure the string is gone
+	this->type = VariantType::INT; //assign the integer type
+	this->value.i %= other.intValue(); //calculate the modulus
+	return *this;
+}
+
+//absolute value operator
+Variant& Variant::abs() {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i = this->value.i >= 0 ? this->value.i : 0 - this->value.i; //get the absolute value
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d = this->value.d >= 0 ? this->value.d : 0.0 - this->value.d; //get the absolute value
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f = this->value.f >= 0 ? this->value.f : 0.0 - this->value.f; //get the absolute value
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//negation operator
+Variant& Variant::neg() {
+	switch(this->type) { //switch on the type
+		case VariantType::INT: //the Variant stores an int
+			{
+				this->value.i = 0 - this->value.i; //get the negation of the value
+				break;
+			}
+		case VariantType::DBL: //the Variant stores a double
+			{
+				this->value.d = 0.0 - this->value.d; //get the negation of the value
+				break;
+			}
+		case VariantType::FLT: //the Variant stores a float
+			{
+				this->value.f = 0.0 - this->value.f; //get the negation of the value
+				break;
+			}
+		default:
+			break;
+	}
+	return *this; //return the object
+}
+
+//logical operators
+
+//NOT operator
+bool Variant::operator!() const {
+	bool ret = this->boolValue(); //get the boolean value of the Variant
+	return !ret; //return the negation of the obtained value
+}
+
+//AND operator
+bool Variant::operator&&(const Variant& other) const {
+	return this->boolValue() && other.boolValue(); //return the two Variants logically ANDed together
+}
+
+//inclusive OR operator
+bool Variant::operator||(const Variant& other) const {
+	return this->boolValue() || other.boolValue(); //return the two Variants logically ORed together
+}
+
+//comparison operators
+
+//equality operator
+bool Variant::operator==(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr == otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() == other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() == other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() == other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() == other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() == other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+
+}
+
+//inequality operator
+bool Variant::operator!=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr != otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() != other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() != other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() != other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() != other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() != other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+}
+
+//less-than operator
+bool Variant::operator<(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr < otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() < other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() < other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() < other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() < other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() != other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+}
+
+//greater-than operator
+bool Variant::operator>(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr > otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() > other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() > other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() > other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() > other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() != other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+}
+
+//ltoe operator
+bool Variant::operator<=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr <= otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() <= other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() <= other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() <= other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() <= other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() != other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+}
+
+//gtoe operator
+bool Variant::operator>=(const Variant& other) {
+	switch(this->type) { //switch on the type
+		case VariantType::STR: //string is stored
+			{
+				std::string thisStr = this->stringValue(); //copy this Variant's string value
+				std::string otherStr = other.stringValue(); //copy the other Variant's string value
+				return thisStr >= otherStr; //return a comparison of the two strings
+			}
+		case VariantType::INT: //int is stored
+			{
+				return this->intValue() >= other.intValue(); //return a comparison of the ints
+			}
+		case VariantType::DBL: //double is stored
+			{
+				return this->doubleValue() >= other.doubleValue(); //return a comparison of the two doubles
+			}
+		case VariantType::FLT: //float is stored
+			{
+				return this->floatValue() >= other.floatValue(); //return a comparison of the two floats
+			}
+		case VariantType::CHAR: //char is stored
+			{
+				return this->charValue() >= other.charValue(); //return a comparison of the two chars
+			}
+		case VariantType::BOOL: //bool is stored
+			{
+				return this->boolValue() != other.boolValue(); //return a comparison of the two bools
+			}
+		default: //no matching type
+			{
+				return false;
+			}
+	}
+}
+
+
 //getter methods
 
 //getType method - returns the type stored in the Variant

@@ -62,12 +62,12 @@ VTVAsgnNode& VTVAsgnNode::operator=(VTVAsgnNode&& src) {
 //getter methods
 
 //symbol method - gets and sets the symbol field
-Symbol* VTVAsgnNode::symbol() {
+Symbol*& VTVAsgnNode::symbol() {
 	return this->sym; //return the symbol pointer
 }
 
 //getValueNode method - returns the AST node used to calculate the value assigned to the symbol
-const ASTNode* VTVAsgnNode::getValueNode() const {
+ASTNode* VTVAsgnNode::getValueNode() {
 	return this->valueNode; //return the value node
 }
 

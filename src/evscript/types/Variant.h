@@ -78,6 +78,28 @@ class Variant final {
 		Variant& operator=(const char* newString); //assigns to a character string
 		Variant& operator=(std::string newString); //assigns to an std::string
 
+		//math operators
+		Variant& operator+=(const Variant& other); //addition operator
+		Variant& operator-=(const Variant& other); //subtraction operator
+		Variant& operator*=(const Variant& other); //multiplication operator
+		Variant& operator/=(const Variant& other); //division operator
+		Variant& operator%=(const Variant& other); //modulus operator
+		Variant& abs(); //absolute value operator
+		Variant& neg(); //negation operator
+
+		//logic operators
+		bool operator!() const; //NOT operator
+		bool operator&&(const Variant& other) const; //AND operator
+		bool operator||(const Variant& other) const; //inclusive OR operator
+
+		//comparison operators
+		bool operator==(const Variant& other); //equality operator
+		bool operator!=(const Variant& other); //inequality operator
+		bool operator<(const Variant& other); //less-than operator
+		bool operator>(const Variant& other); //greater-than operator
+		bool operator<=(const Variant& other); //ltoe operator
+		bool operator>=(const Variant& other); //gtoe operator
+
 		//getter methods
 		VariantType getType() const; //returns the type stored in the Variant
 		int intValue() const; //returns the Variant as an integer

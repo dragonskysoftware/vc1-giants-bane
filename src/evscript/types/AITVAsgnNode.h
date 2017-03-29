@@ -1,5 +1,5 @@
 /*
- * AITIAAsgnNode.h
+ * AITVAsgnNode.h
  * Declares a class that represents an AST node that marks an array-dereference-to-array-dereference variable assignment
  * Created by Andrew Davis
  * Created on 3/24/2017
@@ -7,42 +7,43 @@
  */
 
 //disallow reinclusion
-#ifndef AITIA_ASGN_H
-#define AITIA_ASGN_H
+#ifndef AITVA_ASGN_H
+#define AITVA_ASGN_H
 
 //includes
 #include "ArrayRef.h"
+#include "ASTNode.h"
 #include "GenAsgnNode.h"
 #include "EnumNodeType.h"
 #include "EnumAsgnType.h"
 #include "../../except/InvalidStateException.h"
 
 //class declaration
-class AITIAAsgnNode final : public GenAsgnNode
+class AITVAsgnNode final : public GenAsgnNode
 {
 	//public fields and methods
 	public:
 		//constructor
-		AITIAAsgnNode(const ArrayRef* newLval, const ArrayRef* newRval);
+		AITVAsgnNode(const ArrayRef* newLval, const ASTNode* newRval);
 
 		//destructor
-		~AITIAAsgnNode();
+		~AITVAsgnNode();
 
 		//copy constructor
-		AITIAAsgnNode(const AITIAAsgnNode& aan);
+		AITVAsgnNode(const AITVAsgnNode& aan);
 
 		//move constructor
-		AITIAAsgnNode(AITIAAsgnNode&& aan);
+		AITVAsgnNode(AITVAsgnNode&& aan);
 
 		//assignment operator
-		AITIAAsgnNode& operator=(const AITIAAsgnNode& src);
+		AITVAsgnNode& operator=(const AITVAsgnNode& src);
 
 		//move operator
-		AITIAAsgnNode& operator=(AITIAAsgnNode&& src);
+		AITVAsgnNode& operator=(AITVAsgnNode&& src);
 
 		//getter methods
-		ArrayRef*& lval(); //gets or sets the lval array reference for the node 
-		ArrayRef* getRval(); //returns the rval array reference for the node
+		ArrayRef* lval(); //gets or sets the lval array reference for the node 
+		ASTNode* getRval(); //returns the rval for the node
 	
 	//private fields and methods
 	private:
@@ -51,7 +52,7 @@ class AITIAAsgnNode final : public GenAsgnNode
 
 		//fields
 		ArrayRef* lvalRef; //the ArrayRef to be assigned to
-		ArrayRef* rvalRef; //used to obtain the value to be assigned to the lval ArrayRef
+		ASTNode* rval; //used to obtain the value to be assigned to the lval ArrayRef
 };
 
 #endif

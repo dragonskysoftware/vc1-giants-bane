@@ -20,7 +20,6 @@ enum class EnumNodeType {
 	WHL, //while statement
 	REF, //symbol reference
 	EQU, //assignment
-	SYMS, //symbol list
 	GAME, //game call
 	FUNC, //built-in function call
 	CALL, //user-defined function call

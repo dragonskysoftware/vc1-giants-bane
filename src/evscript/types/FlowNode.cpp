@@ -94,17 +94,17 @@ FlowNode& FlowNode::operator=(FlowNode&& src) {
 //getter methods
 
 //getCondition method - returns the condition AST node for the FlowNode
-const ASTNode* FlowNode::getCondition() const {
+ASTNode* FlowNode::getCondition() {
 	return this->condition; //return the condition pointer
 }
 
 //getThenBranch method - returns the "then branch" AST node for the FlowNode
-const ASTNode* FlowNode::getThenBranch() const {
+ASTNode* FlowNode::getThenBranch() {
 	return this->thenBranch; //return the "then branch" pointer
 }
 
 //getElseBranch method - returns the "else branch" AST node for the FlowNode
-const ASTNode* FlowNode::getElseBranch() const {
+ASTNode* FlowNode::getElseBranch() {
 	return this->elseBranch; //return the "else branch" pointer
 }
 

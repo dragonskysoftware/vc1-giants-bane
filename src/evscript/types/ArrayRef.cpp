@@ -67,7 +67,7 @@ Array& ArrayRef::array() {
 }
 
 //getIndexNode method - returns the AST node used to calculate the reference index of the ArrayRef
-const ASTNode* ArrayRef::getIndexNode() const {
+ASTNode* ArrayRef::getIndexNode() {
 	return this->indexNode; //return the index AST node
 }
 

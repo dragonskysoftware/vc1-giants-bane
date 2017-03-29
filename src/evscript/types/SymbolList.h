@@ -37,10 +37,10 @@ class SymbolList final
 		SymbolList& operator=(SymbolList&& src);
 
 		//getter method
-		const Symbol* getSymbol() const; //returns the symbol for the current SymbolList node
+		Symbol* getSymbol() const; //returns the symbol for the current SymbolList node
 
 		//other method
-		SymbolList* nextNode(); //returns the next node in the list
+		SymbolList*& nextNode(); //returns the next node in the list
 	
 	//private fields and methods
 	private:
