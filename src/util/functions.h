@@ -13,6 +13,8 @@
 //includes
 #include <fstream>
 #include <string>
+#include "constants.h"
+#include "../data/GameDB.h"
 
 //first fileExistsAtPath function - returns whether or not a file exists at a path
 inline bool fileExistsAtPath(const char* path) {
@@ -45,6 +47,9 @@ inline bool validateSideCount(int sides) {
 	return false; //invalid sides
 }
 
-
+//shutdownGame function - starts the shutdown process of the game
+inline void shutdownGame() {
+	GameDB::getInstance().setInt(OP_KEY, SHUTDOWN); //set the operation status field in the database to the shutdown value
+}
 
 #endif
