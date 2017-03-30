@@ -59,6 +59,7 @@ class Entity {
 		//pure virtual methods
 		virtual int heal(int hp) = 0; //heals the entity and returns its new health
 		virtual int hurt(int hp) = 0; //hurts the entity and returns its new health
+		virtual bool shouldDespawn() = 0; //returns whether or not the Entity should despawn
 
 	//protected fields and methods
 	protected:
