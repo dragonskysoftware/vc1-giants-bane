@@ -57,8 +57,8 @@ class Entity {
 		friend std::istream& operator>>(std::istream& is, Entity& e); //load function
 
 		//pure virtual methods
-		virtual int heal(int hp) = 0; //heals the entity and returns its new health
-		virtual int hurt(int hp) = 0; //hurts the entity and returns its new health
+		virtual int heal(int dhp) = 0; //heals the entity and returns its new health
+		virtual int hurt(int dhp) = 0; //hurts the entity and returns its new health
 		virtual bool shouldDespawn() = 0; //returns whether or not the Entity should despawn
 
 	//protected fields and methods
