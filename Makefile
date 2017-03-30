@@ -27,9 +27,10 @@ DATA=$(shell ls src/data/*.cpp)
 EVNT=$(shell ls src/event/*.cpp)
 CORE=$(shell ls src/core/*.cpp)
 STAT=$(shell ls src/stat/*.cpp)
+ENTY=$(shell ls src/entity/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT) $(ENTY)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)
