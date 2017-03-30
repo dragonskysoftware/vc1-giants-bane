@@ -26,7 +26,7 @@ class Entity {
 		Entity(std::string newName, const ImgComponent& newComponent, int newHP = -1);
 
 		//constructor 3 - constructs only from an ImgComponent (used for deserializing the entity from a file)
-		Entity(const ImgComponent& newComponent);
+		explicit Entity(const ImgComponent& newComponent);
 
 		//destructor
 		virtual ~Entity();
