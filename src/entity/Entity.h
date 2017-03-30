@@ -25,6 +25,9 @@ class Entity {
 		//constructor 2 - constructs from a std::string, a component, and an HP value
 		Entity(std::string newName, const ImgComponent& newComponent, int newHP = -1);
 
+		//constructor 3 - constructs only from an ImgComponent (used for deserializing the entity from a file)
+		Entity(const ImgComponent& newComponent);
+
 		//destructor
 		virtual ~Entity();
 

@@ -21,7 +21,14 @@ Entity::Entity(const char* newName, const ImgComponent& newComponent, int newHP)
 
 //constructor 2 - constructs from an std::string, an ImgComponent, and an HP value
 Entity::Entity(std::string newName, const ImgComponent& newComponent, int newHP)
-	: Entity(newName.c_str(), newComponent, newHP) //call other constructor
+	: Entity(newName.c_str(), newComponent, newHP) //call first constructor
+{
+	//no code needed
+}
+
+//constructor 3 - constructs only from an ImgComponent (used for deserializing the Entity from a file)
+Entity::Entity(const ImgComponent& newComponent)
+	: Entity("", newComponent) //call first constructor
 {
 	//no code needed
 }
