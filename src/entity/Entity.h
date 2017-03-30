@@ -13,6 +13,7 @@
 //includes
 #include "../component/ImgComponent.h"
 #include <string>
+#include <iostream>
 
 //class declaration
 class Entity {
@@ -44,6 +45,13 @@ class Entity {
 		const std::string& getName() const; //returns the name of the entity
 		const ImgComponent& getImage() const; //returns the image that represents the entity
 		int getHP() const; //returns the hit points for the entity
+
+		//setter method
+		void setImage(const ImgComponent& newImage); //sets the Entity's image
+
+		//save/load functions
+		friend std::ostream& operator<<(std::ostream& os, const Entity& e); //save function
+		friend std::istream& operator>>(std::istream& is, Entity& e); //load function
 
 		//pure virtual methods
 		virtual int heal(int hp) = 0; //heals the entity and returns its new health

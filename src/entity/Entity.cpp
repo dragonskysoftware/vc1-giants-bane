@@ -85,6 +85,29 @@ int Entity::getHP() const {
 	return this->hp; //return the HP field
 }
 
+//setter method
+
+//setImage method - sets the Entity's image
+void Entity::setImage(const ImgComponent& newImage) {
+	this->component = newImage; //assign the new ImgComponent
+}
+
+//save function
+std::ostream& operator<<(std::ostream& os, const Entity& e) {
+	os << e.id; //save the entity's ID
+	os << e.name; //save the entity's name
+	os << e.hp; //save the entity's hp
+	return os; //return the stream
+}
+
+//load function
+std::istream& operator>>(std::istream& is, Entity& e) {
+	is >> e.id; //load the ID field
+	is >> e.name; //load the name field
+	is >> e.hp; //load the HP field
+	return is; //return the stream
+}
+
 //other methods are abstract
 
 //end of implementation

@@ -115,4 +115,25 @@ void AbilityScore::setScore(int newScore) {
 	this->modifier.recalculate(this->rawScore); //and recalculate the modifier's value based on the new score
 }
 
+//save and load code
+
+//save operator
+std::ostream& operator<<(std::ostream& os, const AbilityScore& as) {
+	int type = static_cast<int>(as.abilityType); //cast the ability type to an int
+	os << type; //write out the type value
+	os << as.rawScore; //write out the raw score
+	os << as.modifier; //write out the modifier
+	return os; //return the stream
+}
+
+//load operator
+std::istream& operator>>(std::istream& is, AbilityScore& as) {
+	int inType; //used to read in the ability type
+	is >> inType; //read in the ability type as an int
+	as.abilityType = static_cast<EnumAbility>(inType); //assign back the ability type field
+	is >> as.rawScore; //read in the raw score
+	is >> as.modifier; //read in the modifier
+	return is; //return the stream
+}
+
 //end of implementation

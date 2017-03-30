@@ -11,6 +11,7 @@
 #define MODIF_H_INC
 
 #include <cmath>
+#include <iostream>
 #include "../except/InvalidAbilityScoreException.h"
 #include "../util/constants.h"
 
@@ -42,6 +43,10 @@ class Modifier {
 
 		//other method
 		void recalculate(int newScore); //recalculates the Modifier's value based on a new ability score
+
+		//save and load code
+		friend std::ostream& operator<<(std::ostream& os, const Modifier& m); //saves the Modifier to a stream
+		friend std::istream& operator>>(std::istream& is, Modifier& m); //loads the Modifier from a stream
 
 	//protected fields and methods
 	protected:

@@ -66,6 +66,20 @@ void Modifier::recalculate(int newScore) {
 	this->calculateValue(newScore); //call the protected calculateValue method to calculate the modifier
 }
 
+//save and load code
+
+//save operator
+std::ostream& operator<<(std::ostream& os, const Modifier& m) {
+	os << m.value; //save the value field
+	return os; //return the stream
+}
+
+//load operator
+std::istream& operator>>(std::istream& is, Modifier& m) {
+	is >> m.value; //load the value field
+	return is; //return the stream
+}
+
 //protected calculateValue method - calcuates the value of the Modifier based on an integer ability score
 void Modifier::calculateValue(int score) {
 	if(score < SCORE_MIN || score > SCORE_MAX) { //if the score is invalid

@@ -12,6 +12,7 @@
 
 //includes
 #include <string>
+#include <iostream>
 #include "Modifier.h"
 #include "EnumAbility.h"
 #include "../util/constants.h"
@@ -47,6 +48,10 @@ class AbilityScore {
 
 		//setter methods
 		void setScore(int newScore); //sets the ability score for the object
+
+		//save and load code 
+		friend std::ostream& operator<<(std::ostream& os, const AbilityScore& as); //saves the AbilityScore to a stream
+		friend std::istream& operator>>(std::istream& is, AbilityScore& as); //loads the AbilityScore from a stream
 
 	//protected fields and methods
 	protected:
