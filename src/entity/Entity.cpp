@@ -12,23 +12,23 @@
 //init static member
 unsigned long long Entity::s_id = 0; //used to create entity IDs
 
-//constructor 1 - constructs from a C string, an ImgComponent, and an HP value
-Entity::Entity(const char* newName, const ImgComponent& newComponent, int newHP)
-	: id(s_id++), name(newName), component(newComponent), hp(newHP) //init the fields
+//default constructor
+Entity::Entity()
+	: Entity("") //call other constructor
 {
 	//no code needed
 }
 
-//constructor 2 - constructs from an std::string, an ImgComponent, and an HP value
-Entity::Entity(std::string newName, const ImgComponent& newComponent, int newHP)
-	: Entity(newName.c_str(), newComponent, newHP) //call first constructor
+//constructor 1 - constructs from a C string and an HP value
+Entity::Entity(const char* newName, int newHP)
+	: id(s_id++), name(newName), hp(newHP) //init the fields
 {
-	//no code needed
+	checkIDMax(); //check the ID maker
 }
 
-//constructor 3 - constructs only from an ImgComponent (used for deserializing the Entity from a file)
-Entity::Entity(const ImgComponent& newComponent)
-	: Entity("", newComponent) //call first constructor
+//constructor 2 - constructs from an std::string and an HP value
+Entity::Entity(std::string newName, int newHP)
+	: Entity(newName.c_str(), newHP) //call first constructor
 {
 	//no code needed
 }
@@ -40,32 +40,28 @@ Entity::~Entity() {
 
 //copy constructor
 Entity::Entity(const Entity& e)
-	: id(e.id), name(e.name), component(e.component), hp(e.hp) //copy the fields
+	: id(s_id++), name(e.name), hp(e.hp) //copy the fields
 {
-	//no code needed
+	checkIDMax(); //check the ID maker
 }
 
 //move constructor
 Entity::Entity(Entity&& e)
-	: id(e.id), name(e.name), component(e.component), hp(e.hp) //move the fields
+	: id(s_id++), name(e.name), hp(e.hp) //move the fields
 {
-	//no code needed
+	checkIDMax(); //check the ID maker
 }
 
 //assignment operator
 Entity& Entity::operator=(const Entity& src) {
-	this->id = src.id; //assign the entity ID
 	this->name = src.name; //assign the entity name
-	this->component = src.component; //assign the entity's image
 	this->hp = src.hp; //assign the entity's HP
 	return *this; //return the object
 }
 
 //move operator
 Entity& Entity::operator=(Entity&& src) {
-	this->id = src.id; //move the entity ID
 	this->name = src.name; //move the entity name
-	this->component = src.component; //move the entity's image
 	this->hp = src.hp; //move the entity's HP
 	return *this; //return the object
 }
@@ -82,21 +78,9 @@ const std::string& Entity::getName() const {
 	return this->name; //return the name field
 }
 
-//getImage method - returns the ImgComponent that holds the Entity's image
-const ImgComponent& Entity::getImage() const {
-	return this->component; //return the image component
-}
-
 //getHP method - returns the HP of the entity
 int Entity::getHP() const {
 	return this->hp; //return the HP field
-}
-
-//setter method
-
-//setImage method - sets the Entity's image
-void Entity::setImage(const ImgComponent& newImage) {
-	this->component = newImage; //assign the new ImgComponent
 }
 
 //save function
@@ -113,6 +97,13 @@ std::istream& operator>>(std::istream& is, Entity& e) {
 	is >> e.name; //load the name field
 	is >> e.hp; //load the HP field
 	return is; //return the stream
+}
+
+//static checkIDMax method - regulates the ID maker value
+void Entity::checkIDMax() {
+	if(s_id >= ULLONG_MAX) { //if the ID maker is too big
+		s_id = 0; //then reset it to 0
+	}
 }
 
 //other methods are abstract

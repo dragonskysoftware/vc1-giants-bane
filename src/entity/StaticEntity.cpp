@@ -9,23 +9,23 @@
 //include header
 #include "StaticEntity.h"
 
-//first constructor - constructs from a C string and an ImgComponent
-StaticEntity::StaticEntity(const char* newName, const ImgComponent& newImage)
-	: Entity(newName, newImage) //call superconstructor
+//default constructor
+StaticEntity::StaticEntity()
+	: Entity() //call default superconstructor
 {
 	//no code needed
 }
 
-//second constructor - constructs from an std::string and an ImgComponent
-StaticEntity::StaticEntity(const std::string& newName, const ImgComponent& newImage)
-	: Entity(newName, newImage) //call superconstructor
+//first constructor - constructs from a C string
+StaticEntity::StaticEntity(const char* newName)
+	: Entity(newName) //call superconstructor
 {
 	//no code needed
 }
 
-//third constructor - constructs from an ImgComponent and is used for deserialization
-StaticEntity::StaticEntity(const ImgComponent& newImage)
-	: Entity(newImage) //call superconstructor
+//second constructor - constructs from an std::string
+StaticEntity::StaticEntity(const std::string& newName)
+	: Entity(newName) //call superconstructor
 {
 	//no code needed
 }

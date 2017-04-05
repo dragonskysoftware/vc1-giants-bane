@@ -18,14 +18,14 @@ class LivingEntity : public Entity
 {
 	//public fields and methods
 	public:
-		//first constructor - constructs from a C string, an ImgComponent, and a health value
-		LivingEntity(const char* newName, const ImgComponent& newImage, int newHP);
-		
-		//second constructor - constructs from an std::string, an ImgComponent, and a health value
-		LivingEntity(const std::string& newName, const ImgComponent& newImage, int newHP);
+		//default constructor
+		LivingEntity();
 
-		//third constructor - constructs only from an ImgComponent and is used for deserialization
-		explicit LivingEntity(const ImgComponent& newImage);
+		//first constructor - constructs from a C string and a health value
+		LivingEntity(const char* newName, int newHP);
+		
+		//second constructor - constructs from an std::string and a health value
+		LivingEntity(const std::string& newName, int newHP);
 
 		//destructor
 		virtual ~LivingEntity();

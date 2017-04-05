@@ -11,22 +11,22 @@
 #define ENTITY_H_INC
 
 //includes
-#include "../component/ImgComponent.h"
 #include <string>
 #include <iostream>
+#include <climits>
 
 //class declaration
 class Entity {
 	//public fields and methods
 	public:
-		//constructor 1 - constructs from a C string, a component, and an HP value
-		Entity(const char* newName, const ImgComponent& newComponent, int newHP = -1);
+		//default constructor
+		Entity();
 
-		//constructor 2 - constructs from a std::string, a component, and an HP value
-		Entity(std::string newName, const ImgComponent& newComponent, int newHP = -1);
+		//constructor 1 - constructs from a C string and an HP value
+		Entity(const char* newName, int newHP = -1);
 
-		//constructor 3 - constructs only from an ImgComponent (used for deserializing the entity from a file)
-		explicit Entity(const ImgComponent& newComponent);
+		//constructor 2 - constructs from a std::string and an HP value
+		Entity(std::string newName, int newHP = -1);
 
 		//destructor
 		virtual ~Entity();
@@ -46,11 +46,7 @@ class Entity {
 		//getter methods
 		unsigned long long getID() const; //returns the ID of the entity
 		const std::string& getName() const; //returns the name of the entity
-		const ImgComponent& getImage() const; //returns the image that represents the entity
 		int getHP() const; //returns the hit points for the entity
-
-		//setter method
-		void setImage(const ImgComponent& newImage); //sets the Entity's image
 
 		//save/load functions
 		friend std::ostream& operator<<(std::ostream& os, const Entity& e); //save function
@@ -63,11 +59,12 @@ class Entity {
 
 	//protected fields and methods
 	protected:
+		//static methods
+		static void checkIDMax(); //checks if the ID creation value is too large, and resets it if it is
 		//fields
 		static unsigned long long s_id; //used to get the ID of the entity
 		unsigned long long id; //the actual, per-entity, ID
 		std::string name; //the name of the entity
-		ImgComponent component; //the image that depicts the Entity
 		int hp; //the hit points for the Entity
 };
 

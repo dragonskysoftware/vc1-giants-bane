@@ -9,23 +9,23 @@
 //include header
 #include "LivingEntity.h"
 
-//first constructor - constructs from a C string, an ImgComponent, and an HP value
-LivingEntity::LivingEntity(const char* newName, const ImgComponent& newImage, int newHP)
-	: Entity(newName, newImage, newHP) //call superconstructor
+//default constructor
+LivingEntity::LivingEntity()
+	: Entity() //call default superclass constructor
 {
 	//no code needed
 }
 
-//second constructor - constructs from an std::string, an ImgComponent, and an HP value
-LivingEntity::LivingEntity(const std::string& newName, const ImgComponent& newImage, int newHP)
-	: Entity(newName, newImage, newHP) //call superconstructor
+//first constructor - constructs from a C string and an HP value
+LivingEntity::LivingEntity(const char* newName, int newHP)
+	: Entity(newName, newHP) //call superconstructor
 {
 	//no code needed
 }
 
-//third constructor - constructs from an ImgComponent and is used for deserialization
-LivingEntity::LivingEntity(const ImgComponent& newImage)
-	: Entity(newImage) //call superconstructor
+//second constructor - constructs from an std::string and an HP value
+LivingEntity::LivingEntity(const std::string& newName, int newHP)
+	: Entity(newName, newHP) //call superconstructor
 {
 	//no code needed
 }

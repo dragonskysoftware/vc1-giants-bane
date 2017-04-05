@@ -2,7 +2,7 @@
  * StaticEntity.h
  * Declares a class that represents a static (non-living) entity for Giant's Bane
  * Created by Andrew Davis
- * Created on 3/30/2017
+ * Created on 4/5/2017
  * Open source (GPL license)
  */
 
@@ -18,14 +18,14 @@ class StaticEntity : public Entity
 {
 	//public fields and methods
 	public:
-		//first constructor - constructs from a C string and an ImgComponent
-		StaticEntity(const char* newName, const ImgComponent& newImage);
-		
-		//second constructor - constructs from an std::string and an ImgComponent
-		StaticEntity(const std::string& newName, const ImgComponent& newImage);
+		//default constructor
+		StaticEntity();
 
-		//third constructor - constructs only from an ImgComponent and is used for deserialization
-		explicit StaticEntity(const ImgComponent& newImage);
+		//first constructor - constructs from a C string
+		explicit StaticEntity(const char* newName);
+		
+		//second constructor - constructs from an std::string
+		explicit StaticEntity(const std::string& newName);
 
 		//destructor
 		virtual ~StaticEntity();
