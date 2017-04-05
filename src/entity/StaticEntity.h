@@ -18,11 +18,11 @@ class StaticEntity : public Entity
 {
 	//public fields and methods
 	public:
-		//first constructor - constructs from a C string, an ImgComponent, and a health value
-		StaticEntity(const char* newName, const ImgComponent& newImage, int newHP);
+		//first constructor - constructs from a C string and an ImgComponent
+		StaticEntity(const char* newName, const ImgComponent& newImage);
 		
-		//second constructor - constructs from an std::string, an ImgComponent, and a health value
-		StaticEntity(const std::string& newName, const ImgComponent& newImage, int newHP);
+		//second constructor - constructs from an std::string and an ImgComponent
+		StaticEntity(const std::string& newName, const ImgComponent& newImage);
 
 		//third constructor - constructs only from an ImgComponent and is used for deserialization
 		explicit StaticEntity(const ImgComponent& newImage);

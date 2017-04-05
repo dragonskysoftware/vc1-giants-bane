@@ -9,16 +9,16 @@
 //include header
 #include "StaticEntity.h"
 
-//first constructor - constructs from a C string, an ImgComponent, and an HP value
-StaticEntity::StaticEntity(const char* newName, const ImgComponent& newImage, int newHP)
-	: Entity(newName, newImage, newHP) //call superconstructor
+//first constructor - constructs from a C string and an ImgComponent
+StaticEntity::StaticEntity(const char* newName, const ImgComponent& newImage)
+	: Entity(newName, newImage) //call superconstructor
 {
 	//no code needed
 }
 
-//second constructor - constructs from an std::string, an ImgComponent, and an HP value
-StaticEntity::StaticEntity(const std::string& newName, const ImgComponent& newImage, int newHP)
-	: Entity(newName, newImage, newHP) //call superconstructor
+//second constructor - constructs from an std::string and an ImgComponent
+StaticEntity::StaticEntity(const std::string& newName, const ImgComponent& newImage)
+	: Entity(newName, newImage) //call superconstructor
 {
 	//no code needed
 }
@@ -81,13 +81,12 @@ std::istream& operator>>(std::istream& is, StaticEntity& se) {
 
 //heal method - heals the StaticEntity by a given amount, returning the new health value
 int StaticEntity::heal(int dhp) {
-	this->hp += dhp; //add the delta-hp value to the HP field
-	return this->hp; //return the new HP value
+	return this->hp; //apply no modification and return the value
 }
 
 //hurt method - damages the StaticEntity by a given amount, returning the new health value
 int StaticEntity::hurt(int dhp) {
-	return this->heal(-dhp); //heal the StaticEntity by a negative value, and return the new HP value
+	return this->hp; //apply no modification and return the value
 }
 
 //other methods
