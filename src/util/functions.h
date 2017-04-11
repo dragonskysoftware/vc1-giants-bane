@@ -11,6 +11,7 @@
 #define FUNC_H_INC
 
 //includes
+#include <SDL2/SDL.h>
 #include <fstream>
 #include <string>
 #include "constants.h"
@@ -50,6 +51,16 @@ inline bool validateSideCount(int sides) {
 //shutdownGame function - starts the shutdown process of the game
 inline void shutdownGame() {
 	GameDB::getInstance().setInt(OP_KEY, SHUTDOWN); //set the operation status field in the database to the shutdown value
+}
+
+//uwait function - delays the game a given number of milliseconds
+inline void uwait(unsigned int time) {
+	SDL_Delay(time); //delay the specified time
+}
+
+//wait function - delays the game a given number of seconds
+inline void wait(int time) {
+	uwait(time * 1000); //call the uwait function
 }
 
 #endif
