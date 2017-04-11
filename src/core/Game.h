@@ -3,7 +3,7 @@
  * Declares a static class that runs the Giant's Bane game
  * Created by Andrew Davis
  * Created on 3/12/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

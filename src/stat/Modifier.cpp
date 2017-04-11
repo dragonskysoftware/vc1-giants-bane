@@ -3,7 +3,7 @@
  * Implements a class that represents a statistic or skill modifier
  * Created by Andrew Davis
  * Created on 3/14/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

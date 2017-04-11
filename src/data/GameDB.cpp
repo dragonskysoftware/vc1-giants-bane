@@ -3,7 +3,7 @@
  * Implements a singleton class that holds the important game data for Giant's Bane
  * Created by Andrew Davis
  * Created on 3/12/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

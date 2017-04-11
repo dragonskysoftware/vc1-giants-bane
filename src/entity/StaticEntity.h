@@ -3,7 +3,7 @@
  * Declares a class that represents a static (non-living) entity for Giant's Bane
  * Created by Andrew Davis
  * Created on 4/5/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

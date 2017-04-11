@@ -3,7 +3,7 @@
  * Defines constants for the Giant's Bane RPG
  * Created by Andrew Davis
  * Created on 3/10/2017 
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

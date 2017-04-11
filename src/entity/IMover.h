@@ -3,7 +3,7 @@
  * Provides an interface to objects that can move
  * Created by Andrew Davis
  * Created on 3/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

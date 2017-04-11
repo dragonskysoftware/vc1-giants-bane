@@ -3,7 +3,7 @@
  * Enumerates the different abilities in Giant's Bane
  * Created by Andrew Davis
  * Created on 3/14/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

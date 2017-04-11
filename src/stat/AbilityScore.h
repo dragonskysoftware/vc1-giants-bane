@@ -3,7 +3,7 @@
  * Declares a class that represents a player, creature, or NPC ability score
  * Created by Andrew Davis
  * Created on 3/14/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

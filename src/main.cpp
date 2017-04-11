@@ -3,7 +3,7 @@
  * Runs main code for Validian Chronicles 1: Giant's Bane
  * Created by Andrew Davis
  * Created on 3/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //includes

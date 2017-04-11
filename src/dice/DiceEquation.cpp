@@ -3,7 +3,7 @@
  * Implements a class that represents a modified die roll
  * Created by Andrew Davis
  * Created on 3/13/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

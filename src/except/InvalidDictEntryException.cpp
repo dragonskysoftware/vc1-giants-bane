@@ -3,7 +3,7 @@
  * Implements an exception that is thrown when an invalid dictionary entry is found
  * Created by Andrew Davis
  * Created on 3/12/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

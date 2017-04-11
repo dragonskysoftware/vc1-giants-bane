@@ -3,7 +3,7 @@
  * Implements a class that acts as a superclass for more specific die classes
  * Created by Andrew Davis
  * Created on 3/11/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

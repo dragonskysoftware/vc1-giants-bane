@@ -3,7 +3,7 @@
  * Declares an exception that is thrown when an invalid ability score is encountered
  * Created by Andrew Davis
  * Created on 3/14/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion

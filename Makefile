@@ -2,7 +2,7 @@
 # Compiles code for the RPG
 # Created by Andrew Davis
 # Created on 3/9/2017
-# Open source (GPL license)
+# All rights reserved
 
 # define the compiler
 CXX=clang++

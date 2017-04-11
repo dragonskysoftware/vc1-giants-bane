@@ -3,7 +3,7 @@
  * Implements a class that represents a game component for the Giant's Bane RPG
  * Created by Andrew Davis
  * Created on 3/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

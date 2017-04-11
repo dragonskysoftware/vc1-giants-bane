@@ -3,7 +3,7 @@
  * Implements a class that acts as a parent class for all other texture subclasses
  * Created by Andrew Davis
  * Created on 3/9/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

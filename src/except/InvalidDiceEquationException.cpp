@@ -3,7 +3,7 @@
  * Implements an exception that is thrown when an invalid dice equation string is supplied for parsing
  * Created by Andrew Davis
  * Created on 3/13/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //include header

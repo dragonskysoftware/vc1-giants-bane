@@ -3,7 +3,7 @@
  * Declares a class that represents an entity in Giant's Bane
  * Created by Andrew Davis
  * Created on 3/29/2017
- * Open source (GPL license)
+ * All rights reserved
  */
 
 //disallow reinclusion
