@@ -58,6 +58,11 @@ class Component {
 		//sets the texture text
 		bool setTextureText(std::string newText, SDL_Color textColor, TTF_Font* textFont);
 
+		//texture interface methods
+		void setColor(uint8_t red, uint8_t green, uint8_t blue); //sets the color of the texture
+		void setBlendMode(SDL_BlendMode blending); //sets the blend mode of the texture
+		void setAlpha(uint8_t alpha); //sets the alpha modulation of the texture
+
 		//other methods
 
 		//renders the Component

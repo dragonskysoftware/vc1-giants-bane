@@ -156,6 +156,24 @@ bool Component::setTextureText(std::string newText, SDL_Color textColor, TTF_Fon
 	return this->texture->loadFromText(newText, textColor, textFont, this->renderer); //load the texture image from text
 }
 
+//texture interface methods
+
+//setColor method - sets the color of the texture
+void Component::setColor(uint8_t red, uint8_t green, uint8_t blue) {
+	this->texture->setColor(red, green, blue); //set the texture's color
+}
+
+//setBlendMode method - sets the blend mode of the texture
+void Component::setBlendMode(SDL_BlendMode blending) {
+	this->texture->setBlendMode(blending); //set the blend mode
+}
+
+//setAlpha method - sets the alpha modulation of the texture
+void Component::setAlpha(uint8_t alpha) {
+	this->texture->setAlpha(alpha); //set the alpha
+}
+
+
 //other method
 
 //render method - renders the Component
