@@ -10,8 +10,8 @@
 #include "constants.h"
 
 //screen size constants
-const int SCREEN_WIDTH = 640; //the width of the screen
-const int SCREEN_HEIGHT = 480; //the height of the screen
+const int SCREEN_WIDTH = 860; //the width of the screen
+const int SCREEN_HEIGHT = 700; //the height of the screen
 
 //the header text for the game window
 const char* WIN_HEADER = "Validian Chronicles I: Giant's Bane";
