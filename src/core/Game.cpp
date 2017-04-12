@@ -82,9 +82,9 @@ bool Game::start() {
 
 //run method - runs the game
 void Game::run() {
-	message = new TextComponent(SCREEN_WIDTH / 7, SCREEN_HEIGHT / 2, std::string(DEV_MSG), "../assets/Roboto-Light.ttf", 28, 0, 0, 0, renderer); 
-	image = new ImgComponent(0, 0, "../assets/test.png", renderer);
-	splash = new ImgComponent(0, 0, "../assets/Splash.png", renderer);
+	message = new TextComponent(SCREEN_WIDTH / 7, SCREEN_HEIGHT / 2, std::string(DEV_MSG), "../assets/fonts/Roboto-Light.ttf", 28, 0, 0, 0, renderer); 
+	image = new ImgComponent(0, 0, "../assets/images/test.png", renderer);
+	splash = new ImgComponent(0, 0, "../assets/images/Splash.png", renderer);
 	displaySplash(); //show the splash screen
 	//start the loop
 	while(true) { //loop forever, or until a quit event is detected by the event regulator
@@ -136,7 +136,7 @@ void Game::displaySplash() {
 	}
 
 	//play the intro music
-	SoundEffect* intro = new SoundEffect("../assets/Intro.ogg"); //create the intro music as a sound effect
+	SoundEffect* intro = new SoundEffect("../assets/sounds/Intro.ogg"); //create the intro music as a sound effect
 	intro->play(); //and play the music
 
 	//draw a black screen
