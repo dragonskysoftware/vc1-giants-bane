@@ -68,6 +68,14 @@ bool Game::start() {
 		success = false;
 	}
 
+	//initialize mixer flags
+	int fflags = MIX_INIT_OGG; //the format initialization flags
+	int result = Mix_Init(fflags); //initialize the mixer using the flags and return the result
+	if((result & fflags) != fflags) { //if the initialization failed
+		std::cerr << "Failed to initialize ogg support. Error: " << Mix_GetError() << std::endl; //then show an error msg
+		success = false; //and reset the success flag
+	}
+
 	return success; //return the success flag
 
 }
@@ -126,6 +134,11 @@ void Game::displaySplash() {
 	if(splash == nullptr) { //if the splash is not initialized
 		return; //then exit the method
 	}
+
+	//play the intro music
+	SoundEffect* intro = new SoundEffect("../assets/Intro.ogg"); //create the intro music as a sound effect
+	intro->play(); //and play the music
+
 	//draw a black screen
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xff); //set the draw color to black
 	SDL_RenderClear(renderer); //fill the screen with black
@@ -158,6 +171,10 @@ void Game::displaySplash() {
 		SDL_RenderClear(renderer); //fill the screen with black
 		uwait(50); //wait 50/1000 of a second
 	}
+
+	delete intro; //deallocate the intro music
+	intro = nullptr; //and zero it out
+
 	//draw a black screen
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xff); //set the draw color to black
 	SDL_RenderClear(renderer); //fill the screen with black
