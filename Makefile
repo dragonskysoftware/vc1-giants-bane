@@ -11,7 +11,7 @@ CXX=clang++
 CPPFLAGS=-c -Wall -std=c++14 -Wno-unused-value
 
 # define the library flags
-LIBS=-lSDL2 -lSDL2_image -lSDL2_ttf -lSDL_mixer -lm
+LIBS=-lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lm
 
 # define the state-specific library flags
 debug: CPPFLAGS += -g
