@@ -14,6 +14,9 @@ MusicTrack::MusicTrack(const char* trackName)
 	: music(nullptr), name(trackName) //init the fields
 {
 	this->music = Mix_LoadMUS(trackName); //load the music from the filename
+	if(!this->music) { //if the load failed
+		throw InvalidSoundException(trackName, Mix_GetError()); //then throw an exception
+	}
 }
 
 //constructor 2 - constructs from a std::string
