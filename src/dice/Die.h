@@ -1,9 +1,9 @@
 /*
  * Die.h
- * Declares a class that acts as a superclass for more specific die classes
+ * Declares a class that represents a die with an arbitrary side count
  * Created by Andrew Davis
- * Created on 3/11/2017
- * All rights reserved
+ * Created on 6/26/2017
+ * Open source (GPL license)
  */
 
 //disallow reinclusion
@@ -11,19 +11,16 @@
 #define DIE_H_INC
 
 //includes
-#include <ctime>
 #include <cstdlib>
-#include "../except/InvalidStateException.h"
+#include <ctime>
+#include "../except/BadDieException.h"
 
 //class declaration
 class Die {
 	//public fields and methods
 	public:
-		//first constructor - initializes the Die with a given number of sides and a random value
-		explicit Die(int newSides);
-
-		//second constructor - initializes the Die with a given number of sides and a set value
-		Die(int newSides, int newValue);
+		//constructor
+		explicit Die(int numSides);
 
 		//destructor
 		virtual ~Die();
@@ -41,20 +38,22 @@ class Die {
 		Die& operator=(Die&& src);
 
 		//getter methods
-		int getSideCount() const; //returns the number of sides on the Die
-		int getValue() const; //returns the value showing on the Die
+		
+		int getSideCount() const; //returns the number of sides
+		int getValue() const; //returns the value last rolled
 
 		//other methods
+
 		void roll(); //rolls the Die
-	
+
 	//protected fields and methods
 	protected:
-		//protected methods
-		void seedRandomGenerator() const; //seeds the RNG for the Die
+		//method
+		void seedRNG(); //seeds the RNG for the Die
 
 		//fields
-		int sides; //the sides on the Die
-		int value; //the value showing on the Die
+		int sides; //the number of sides on the Die
+		int value; //the value last rolled by the Die
 };
 
 #endif

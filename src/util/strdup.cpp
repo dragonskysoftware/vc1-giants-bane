@@ -17,4 +17,14 @@ char* strdup(const char* str) noexcept {
 	return ret; //return the duplicated, initialized string
 }
 
+//C_strdup function implementation - duplicates a character string
+char* C_strdup(const char* str) noexcept {
+	size_t len = strlen(str) + 1; //get the length of the supplied string plus 1
+	char* ret = (char*)SDL_malloc(len * sizeof(char)); //allocate a character string with the calculated length
+	if(ret) { //if the string is valid
+		strcpy(ret, str); //copy in the supplied string
+	}
+	return ret; //return the string
+}
+
 //end of implementation

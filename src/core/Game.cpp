@@ -181,4 +181,9 @@ void Game::displaySplash() {
 }
 
 
+//static getWindow method - returns the game window
+SDL_Window* Game::getWindow() {
+	return window; //return the window object
+}
+
 //end of implementation

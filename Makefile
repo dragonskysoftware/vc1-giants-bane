@@ -29,9 +29,10 @@ CORE=$(shell ls src/core/*.cpp)
 STAT=$(shell ls src/stat/*.cpp)
 ENTY=$(shell ls src/entity/*.cpp)
 SND=$(shell ls src/audio/*.cpp)
+GUI=$(shell ls src/gui/*.cpp)
 
 # compile the source code into a list
-SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT) $(ENTY) $(SND)
+SOURCES=$(MAIN) $(TEX) $(COMP) $(UTIL) $(EXCE) $(DICE) $(DATA) $(EVNT) $(CORE) $(STAT) $(ENTY) $(SND) $(GUI)
 
 # map the source files to object files
 OBJECTS=$(SOURCES:.cpp=.o)

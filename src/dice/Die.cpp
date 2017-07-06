@@ -1,32 +1,25 @@
 /*
  * Die.cpp
- * Implements a class that acts as a superclass for more specific die classes
+ * Implements a class that represents a die with an arbitrary side count
  * Created by Andrew Davis
- * Created on 3/11/2017
- * All rights reserved
+ * Created on 6/26/2017
+ * Open source (GPL license)
  */
 
 //include header
 #include "Die.h"
 
-//first constructor - creates a Die with a given number of sides and a random value
-Die::Die(int newSides)
-	: sides(newSides), value(0) //init the fields
+//constructor
+Die::Die(int numSides)
+	: sides(numSides), value(1) //init the fields
 {
-	if(this->sides <= 1) { //if the side number is invalid
-		throw InvalidStateException("Side count for a Die object is invalid (less than 2)"); //then throw an exception
+	//validate the side count (has to be 2 or more)
+	if(this->sides <= 1) { //if the side count is invalid
+		//then throw an exception
+		throw BadDieException("Invalid side count given");
 	}
-	this->seedRandomGenerator(); //start the RNG
-	this->roll(); //set the value field to a random value
-}
-
-//second constructor - creates a Die with a given number of sides and a set value
-Die::Die(int newSides, int newValue)
-	: Die(newSides) //call other constructor
-{
-	if(newValue > 0 && newValue <= newSides) { //if the new value is valid
-		this->value = newValue; //then assign it to the value field
-	}
+	this->seedRNG(); //seed the RNG
+	this->roll(); //and randomize the value field
 }
 
 //destructor
@@ -38,38 +31,38 @@ Die::~Die() {
 Die::Die(const Die& d)
 	: sides(d.sides), value(d.value) //copy the fields
 {
-	this->seedRandomGenerator(); //start the RNG
+	this->seedRNG(); //and seed the RNG
 }
 
 //move constructor
 Die::Die(Die&& d)
 	: sides(d.sides), value(d.value) //move the fields
 {
-	this->seedRandomGenerator(); //start the RNG
+	this->seedRNG(); //and seed the RNG
 }
 
 //assignment operator
 Die& Die::operator=(const Die& src) {
-	this->sides = src.sides; //assign the sides field
+	this->sides = src.sides; //assign the side count field
 	this->value = src.value; //assign the value field
-	return *this; //return the object
+	return *this; //and return the object
 }
 
 //move operator
 Die& Die::operator=(Die&& src) {
-	this->sides = src.sides; //move the sides field
+	this->sides = src.sides; //move the side count field
 	this->value = src.value; //move the value field
-	return *this; //return the object
+	return *this; //and return the object
 }
 
 //getter methods
 
 //getSideCount method - returns the number of sides on the Die
 int Die::getSideCount() const {
-	return this->sides; //return the sides field
+	return this->sides; //return the side count field
 }
 
-//getValue method - returns the value showing on the Die
+//getValue method - returns the value last rolled
 int Die::getValue() const {
 	return this->value; //return the value field
 }
@@ -78,12 +71,12 @@ int Die::getValue() const {
 
 //roll method - rolls the Die
 void Die::roll() {
-	this->value = rand() % this->sides + 1; //get a new random value using the sides field
+	this->value = (rand() % this->sides) + 1; //randomize the value
 }
 
-//protected seedRandomGenerator method - sets up the RNG
-void Die::seedRandomGenerator() const {
-	std::srand(std::time(NULL)); //seed the RNG using the current time
+//protected seedRNG method - seeds the RNG
+void Die::seedRNG() {
+	srand(time(NULL)); //seed the RNG
 }
 
 //end of implementation
